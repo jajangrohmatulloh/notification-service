@@ -4,7 +4,7 @@ public class Data {
     private Long id;
     private String nama;
     private String login_datetime;
-    private String agent;
+    private String agents;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class Data {
         this.login_datetime = login_datetime;
     }
 
-    public String getAgent() {
-        return agent;
+    public String getAgents() {
+        return agents;
     }
 
-    public void setAgent(String agent) {
-        this.agent = agent;
+    public void setAgents(String agents) {
+        this.agents = agents;
     }
 }

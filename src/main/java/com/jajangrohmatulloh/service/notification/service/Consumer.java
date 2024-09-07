@@ -21,6 +21,7 @@ public class Consumer {
     })
     public void consumeFromTopic(String message) throws JsonProcessingException {
         Data data = Converter.toDataObject(message);
+        System.out.println("Data " + data.getNama());
         String response = restTemplate.postForObject(url, data, String.class);
 
         System.out.println("Response " + response);
