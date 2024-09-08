@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class Consumer {
 
-    private String url = "https://62843350f6494aa285f590f58ed6ef43.api.mockbin.io/";
+    private final String url = "https://62843350f6494aa285f590f58ed6ef43.api.mockbin.io/";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -21,7 +21,10 @@ public class Consumer {
     })
     public void consumeFromTopic(String message) throws JsonProcessingException {
         Data data = Converter.toDataObject(message);
-        System.out.println("Data " + data.getNama());
+        System.out.println("id: " + data.getId() +
+                "\nnama: " + data.getNama() +
+                "\nlogin_datetime: " + data.getLogin_datetime() +
+                "\nagents: " + data.getAgents());
         String response = restTemplate.postForObject(url, data, String.class);
 
         System.out.println("Response " + response);
